@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+
+<div class="col-lg-8 col-md-10 mx-auto">
+ 
+    {% for article in articles %}
+        <div class="post-preview">
+          <a href="{{ path('article',{id: article.id})}}">
+            <h2 class="post-title">{{ article.title }}</h2>
+            <h3 class="post-subtitle">
+              Problems look mighty small from 150 miles up
+            </h3>
+          </a>
+          <p class="post-meta">
+            <p>{{ article.content | truncate(25, true,'...')}}</p>
+            Posted by
+            <a href="#">Start Bootstrap</a>
+            {{ article.publishedAt|date('d,m,Y') }}</p>
+        </div>
+    {% endfor %}
+    <hr>
+</div>
+{% endblock %}
+
+
